@@ -1,0 +1,44 @@
+{% extends 'base/base.html'%}
+
+{% block content %}
+
+
+<div class="row">
+        <div class="col-md-6 col-md-offset-1 padding-top">
+            <form id='add-Catalog-Form' method="POST" >
+                <div class="row control-group">
+                        <h2>Catalog</h2>
+                        {% if listcatalogs%}
+                            {% for catalog in listcatalogs%}
+                            <a href = "{{url_for('items', catalog_id = catalog.id)}}">
+                                    <div class="row">
+                                            <div class="col-md-10 catalog-list">
+                                                <h3>{{catalog.namecat}}</h3>
+                                                <a href="{{url_for('removecatalog',namecat=catalog.namecat, catalog_id = catalog.id)}}">Remove</a>
+                                            </div>
+                                        <div class="col-md-1"></div>
+                                    </div>
+                                </a>
+                            {% endfor%}
+                        {% endif %}
+             
+            </div>
+        </form>
+    
+        </div>
+    </div>
+    <div class="row padding-top padding-bottom">
+            <div class="col-md-1"></div>
+            <div class="col-md-11 padding-none">
+                    {%if 'user' in session %}
+                    <a href="{{url_for('catalog')}}">
+                            <button class="btn btn-default" >
+                                <span class="glyphicon glyphicon-glass" aria-hidden="true"></span>Add Menu Item
+                            </button>
+                        </a>
+                      
+                    {% endif %}
+            </div>
+            <div class="col-md-7"></div>
+        </div>
+{% endblock%}

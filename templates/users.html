@@ -1,0 +1,25 @@
+<html>
+    <head>
+        <title>
+            Index
+        </title>
+    </head>
+    <body>
+        <h4>
+            Holii
+        </h4>
+        <h3>{{name}}</h3>
+        <h3>{{age}}</h3>
+        <h3>{{my_list}}</h3>
+
+        {% if age < 26 %}
+            <a>No es yohita</a>
+        {% endif %}
+
+        {% for item in list %}
+            <p>{{item}}</p>
+
+        {% endfor %}
+
+    </body>
+</html>
